@@ -1,0 +1,36 @@
+Please go through the pyarduino.py and keep in mind the following criteria:
+	a. Introduce class analog, class digital, class dcmotor, class servo motor
+        b.Please don't change the naming convention and number of parameters used 
+          in each of the functions
+
+caution: 1. Please let me know if you are using arduino uno board to check your code. 
+            You will need to have some other files.
+         2. If you aren't using any arduino board, then try to make your logic right.
+
+
+
+Dear All,
+
+Thank you for your interest in FOSSEE project. You have expressed interest in the Scilab-Arduino project. Before you
+start working on this project, we would like to assess your coding skills.
+
+In the attached file, you have two files- pyarduino.py and question-intern.txt. The problem set is in
+question-intern.txt.
+
+
+Add appropriate comments throughout the code. Place header comments that include your name, function, input arguments,
+output arguments details (if applicable). Include an example in the comment section (if applicable). Cite any sources
+you may have used. This step is compulsory.
+
+Create a Github Repo. Push your code to the github repo and add a readme file. The readme file should explain how to
+execute the code.The readme file should be exhaustive. Plagiarism of any sort will not be tolerated and your code will
+be summarily rejected.
+
+Fill this form providing the Github repo details- https://goo.gl/6IY4Vz
+
+You have to submit the form by 5 PM on Feb. 23, 2016. If you have any doubts, please click on 'Reply to All' button and
+mail your query.
+
+Regards,
+
+Shamika
