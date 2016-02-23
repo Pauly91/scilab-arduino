@@ -1,1 +1,47 @@
 This is a python code to use different functionalities of Arduino
+
+The following classes are implemented
+
+
+Class:
+
+    arduinoCore - This class is used to find and open the serial port that communicates with the arduino
+        __checkfirmware()
+            - checks if the firmware is loaded
+        locate_port()
+            - locates the serial port
+        open_serial()
+            - Open the serial port
+        close_serial()
+            - Closes the serial list_ports
+
+    DcMotor - This class gives various method used to control the DC motor
+        __cmd_dcmotor_setup()
+            - This is method is called automatically and sets up the DC motor
+        cmd_dcmotor_run()
+            - This method makes the dc motor run in the specific direction
+        cmd_dcmotor_release()
+            - This Method is used to release the pin used for running the motor in arduino
+
+    ServoMotor - This class gives various method used to control the Servo motor
+        cmd_servo_attach()
+            - This method sets up the servo motor connected to the arduino
+        cmd_servo_detach()
+            - This method releases the pins that are set for the servo motor
+        cmd_servo_move()
+            - This method moves the servo motor in the angle specified
+
+    analog - This class gives various method use the ADC in the arduino
+        cmd_analog_in()
+            - This method sets the ADC pin as input and reads the value
+        cmd_analog_out()
+            - This method sets the ADC pin as ouput and sends the value out
+
+
+    digital - This class gives the various methods to set pins as digital pins (I/O as 1 or 0)
+        cmd_digital_out()
+            - This method sets value as 1 or 0
+        cmd_digital_in()
+            - This methods sets reads the value of the pin
+        __cmd_digital_IO_selector()
+            - This methods sets the pin as input or output.

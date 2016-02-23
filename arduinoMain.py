@@ -2,7 +2,7 @@
 '''
 Author : Abel Paul Babu
 
-Class arduin
+Sample Code : Refer sampleCode.py
 
 '''
 
@@ -81,15 +81,20 @@ class digital(object):
         self.__port = port  # assign the open port
         self.__selector = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ":", ";", "<", "=", ">", "A", "B", "C", "D"]
 
-    def cmd_digital_out(self, Ano, pin, val):
-        cmd = "D"+"a"+self.__selector[pin]+"1"  # set the pin as output
+    def __cmd_digital_IO_selector(self, pin, val):
+        if val == 1:
+            cmd = "D"+"a"+self.__selector[pin]+"1"
+        elif val == 0:
+            cmd = "D"+"a"+self.__selector[pin]+"0"
+        else:
+            cmd = "D"+"a"+self.__selector[pin]+"1"
         self.__port.write(cmd)  # send the command to the arduino
+
+    def cmd_digital_out(self, Ano, pin, val):
         cmd = "D"+"w"+self.__selector[pin]+str(val)  # val is either 0 or 1  - write high or low to the pin
         self.__port.write(cmd)  # send the command to the arduino
 
     def cmd_digital_in(self, Ano, pin):
-        cmd = "D"+"a"+self.__selector[pin]+"0"  # set the pin as Input
-        self.__port.write(cmd)   # send the command to the arduino
         cmd = "D"+"r"+self.__selector[pin]  # set the pin to read the value
         self.__port.write(cmd)  # send the command to the arduino
         result = self.__port.read()  # Read the data from the arduino
@@ -110,7 +115,6 @@ class analog(object):
     def cmd_analog_out(self, Ano, pin, val):
         cmd = "W" + self.__selector[pin] + chr(val)  # Sets the pin as output and assigns the 8 bit value
         self.__port.write(cmd)  # send the command to the arduino
-
 
 class ServoMotor(object):
     def __init__(self, port):
@@ -153,25 +157,3 @@ class DcMotor(object):
         cmd = "M" + self.__selector[mno] + "r"
         self.__port.write(cmd)  # send the command to the arduino
 
-
-def main():
-    serial_port = arduinoCore()
-    portNo = serial_port.locate_port()
-    print portNo
-    port = serial_port.open_serial(1, portNo, 9600)
-    port.write("abel")
-    #print type(port)
-    analogFunction = DcMotor(port, 1, 1,1 , 1, 1)
-    analogFunction.cmd_dcmotor_run(1,1,1)
-    a = digital(port)
-    a.cmd_digital_out(1,1,1)
-
-    b = ServoMotor(port)
-    b.cmd_servo_move(1,1,1)
-
-    c = analog(port)
-    c.cmd_analog_in(1,1)
-
-
-if __name__ == "__main__":
-    main()
